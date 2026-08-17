@@ -1,0 +1,12 @@
+{
+	"mcpServers": {
+		"grove-sample": {
+			"type": "stdio",
+			"command": "npx",
+			"args": [
+				"-y",
+				"@modelcontextprotocol/server-everything"
+			]
+		}
+	}
+}

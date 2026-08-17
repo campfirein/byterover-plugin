@@ -1,0 +1,6 @@
+{
+	"$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+	"name": "grove",
+	"description": "Grounded company context from your Grove Company Brain.",
+	"version": "0.4.0"
+}
