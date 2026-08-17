@@ -1,6 +1,6 @@
 {
 	"$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
 	"name": "grove",
-	"description": "Grounded company context from your Grove Company Brain.",
-	"version": "0.4.0"
+	"description": "Answer company questions from your Grove Company Brain: accepted context about the company, product, team and decisions, and propose new facts for review.",
+	"version": "0.4.1"
 }
