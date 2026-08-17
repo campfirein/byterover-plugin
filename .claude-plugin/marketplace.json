@@ -1,0 +1,14 @@
+{
+	"name": "byterover",
+	"owner": {
+		"name": "ByteRover",
+		"url": "https://github.com/campfirein"
+	},
+	"plugins": [
+		{
+			"name": "grove",
+			"source": "./grove",
+			"description": "Grounded company context from your Grove Company Brain."
+		}
+	]
+}
