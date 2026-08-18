@@ -1,8 +1,8 @@
 {
 	"mcpServers": {
 		"grove-brain": {
-			"type": "stdio",
-			"command": "${CLAUDE_PLUGIN_ROOT}/bin/grove-brain"
+			"type": "http",
+			"url": "https://dev-mcp.byterover.dev/mcp"
 		}
 	}
 }

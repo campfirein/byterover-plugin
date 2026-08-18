@@ -2,5 +2,21 @@
 	"$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
 	"name": "grove",
 	"description": "Answer company questions from your Grove Company Brain: accepted context about the company, product, team and decisions, and propose new facts for review.",
-	"version": "0.5.0"
+	"version": "0.6.0",
+	"author": {
+		"name": "BYTEROVER, Inc.",
+		"email": "accounts@byterover.dev",
+		"url": "https://byterover.dev"
+	},
+	"homepage": "https://byterover.dev",
+	"repository": "https://github.com/campfirein/grove-plugin",
+	"license": "Elastic-2.0",
+	"keywords": [
+		"grove",
+		"company-brain",
+		"context",
+		"knowledge",
+		"memory",
+		"documentation"
+	]
 }

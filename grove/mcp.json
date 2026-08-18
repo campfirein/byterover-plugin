@@ -2,9 +2,8 @@
 	"$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
 	"mcpServers": {
 		"grove-brain": {
-			"type": "stdio",
-			"command": "./bin/grove-brain",
-			"cwd": "${PLUGIN_ROOT}"
+			"type": "http",
+			"url": "https://dev-mcp.byterover.dev/mcp"
 		}
 	}
 }
