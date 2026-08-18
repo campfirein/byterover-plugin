@@ -1,6 +1,6 @@
-# Grove plugin marketplace
+# ByteRover plugin marketplace
 
-The Grove plugin gives your coding agent grounded company context from your Grove Company Brain.
+The ByteRover plugin gives your coding agent grounded company context from your Grove Company Brain.
 
 ## Install
 
@@ -16,6 +16,10 @@ Then install the plugin:
 /plugin install grove@byterover
 ```
 
+`grove` is the plugin's id, and it does not change with the name on the card: a host keys an
+install by that string, so renaming it would read as a different plugin and leave the one you have
+installed sitting there.
+
 Other agents read the same directory through the [Agent Plugins](https://agent-plugins.org)
 format. Point your client's plugin setup at the `grove/` directory of this repository, and follow
 that client's own install instructions.
@@ -29,5 +33,6 @@ that client's own install instructions.
 
 ## Updates
 
-Run `/plugin marketplace update` to pick up a new version. The plugin version tracks the Company
-Brain skill it carries, so a new version means the guidance your agent follows has changed.
+Run `/plugin marketplace update` to pick up a new version. A host only offers an update when the
+version in the manifest changes, so every release carries one - including a release that only
+changes the Company Brain skill your agent follows.
