@@ -1,8 +1,0 @@
-{
-	"mcpServers": {
-		"grove-brain": {
-			"type": "http",
-			"url": "https://dev-mcp.byterover.dev/mcp"
-		}
-	}
-}

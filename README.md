@@ -13,7 +13,7 @@ claude plugin marketplace add campfirein/byterover-plugin
 Then install the plugin:
 
 ```
-/plugin install grove@byterover
+/plugin install byterover@byterover
 ```
 
 The id changes at 0.7.0: `grove@byterover` becomes `byterover@byterover`. A host keys an install by
@@ -27,11 +27,9 @@ that client's own install instructions.
 ## What is here
 
 - `.claude-plugin/marketplace.json`: the marketplace catalog. Authored by hand.
-- `grove/`: the plugin, up to 0.6.0. **Generated**, and on its way out - 0.7.0 publishes
-  `byterover/` instead, and this directory is deleted with the catalog row that points at it.
-- `byterover/`: the plugin from 0.7.0 on. **Generated.** It is built from `apps/plugin` in the Grove
-  repository and published here by a release job. Do not edit it: the next release overwrites the
-  whole directory.
+- `byterover/`: the plugin itself, from 0.7.0 on. **Generated.** It is built from `apps/plugin` in
+  the Grove repository and published here by a release job. Do not edit it: the next release
+  overwrites the whole directory. (`grove/`, the 0.6.0 bundle, was removed with the rename.)
 
 ## Updates
 
