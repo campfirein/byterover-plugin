@@ -8,7 +8,12 @@
 		{
 			"name": "grove",
 			"source": "./grove",
-			"description": "Grounded company context from your Grove Company Brain."
+			"description": "Grounded company context from your Grove Company Brain.",
+			"category": "Productivity",
+			"keywords": ["grove", "company-brain", "context", "knowledge", "memory", "documentation"],
+			"author": { "name": "BYTEROVER, Inc.", "email": "accounts@byterover.dev", "url": "https://byterover.dev" },
+			"homepage": "https://byterover.dev",
+			"license": "Elastic-2.0"
 		}
 	]
 }
