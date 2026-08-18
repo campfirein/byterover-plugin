@@ -1,9 +1,9 @@
 ---
-name: grove-company-brain
+name: byterover-company-brain
 description: Query accepted context from the selected Company Brain and create pending proposals when the user explicitly asks to save a statement.
 ---
 
-<!-- grove-brain-skill-version: 4 -->
+<!-- byterover-brain-skill-version: 5 -->
 
 # Use the Company Brain
 

@@ -1,7 +1,7 @@
 {
 	"name": "byterover",
-	"description": "Answer company questions from your Grove Company Brain: accepted context about the company, product, team and decisions, and propose new facts for review.",
-	"version": "0.7.0",
+	"description": "Answer company questions from your ByteRover Company Brain: accepted context about the company, product, team and decisions, and propose new facts for review.",
+	"version": "0.8.0",
 	"author": {
 		"name": "BYTEROVER, Inc.",
 		"email": "accounts@byterover.dev",
@@ -11,7 +11,7 @@
 	"repository": "https://github.com/campfirein/byterover-plugin",
 	"license": "Elastic-2.0",
 	"keywords": [
-		"grove",
+		"byterover",
 		"company-brain",
 		"context",
 		"knowledge",
