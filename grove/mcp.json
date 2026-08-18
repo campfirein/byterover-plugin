@@ -3,13 +3,8 @@
 	"mcpServers": {
 		"grove-brain": {
 			"type": "stdio",
-			"command": "/Applications/Grove.app/Contents/MacOS/Grove",
-			"args": [
-				"/Applications/Grove.app/Contents/Resources/app/out/main/grove-brain-mcp.js"
-			],
-			"env": {
-				"ELECTRON_RUN_AS_NODE": "1"
-			}
+			"command": "./bin/grove-brain",
+			"cwd": "${PLUGIN_ROOT}"
 		}
 	}
 }
