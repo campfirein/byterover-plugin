@@ -1,5 +1,6 @@
 {
 	"name": "byterover",
+	"description": "ByteRover's plugin marketplace: grounded company context from your Company Brain.",
 	"owner": {
 		"name": "ByteRover",
 		"url": "https://github.com/campfirein"
