@@ -2,7 +2,7 @@
 	"$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
 	"name": "byterover",
 	"description": "Answer company questions from your ByteRover Company Brain: accepted context about the company, product, team and decisions, and propose new facts for review.",
-	"version": "0.8.0",
+	"version": "0.8.1",
 	"author": {
 		"name": "BYTEROVER, Inc.",
 		"email": "accounts@byterover.dev",

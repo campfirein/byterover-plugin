@@ -1,6 +1,6 @@
 {
 	"name": "byterover",
-	"version": "0.8.0",
+	"version": "0.8.1",
 	"description": "Answer company questions from your ByteRover Company Brain: accepted context about the company, product, team and decisions, and propose new facts for review.",
 	"author": {
 		"name": "BYTEROVER, Inc.",

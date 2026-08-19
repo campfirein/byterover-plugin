@@ -1,7 +1,8 @@
 {
 	"name": "byterover",
+	"displayName": "ByteRover",
 	"description": "Answer company questions from your ByteRover Company Brain: accepted context about the company, product, team and decisions, and propose new facts for review.",
-	"version": "0.8.0",
+	"version": "0.8.1",
 	"author": {
 		"name": "BYTEROVER, Inc.",
 		"email": "accounts@byterover.dev",
