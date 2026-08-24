@@ -47,7 +47,7 @@ A ByteRover account. The plugin connects to `https://dev-mcp.byterover.dev/mcp` 
 for sign-in and consent on first use. There is nothing to install or launch locally, and no
 particular operating system is required.
 
-The remote MCP surface is read-only while its final tool contract is being defined.
+Company Brain query and governed learning are available through the remote connection.
 
 ## What is here
 

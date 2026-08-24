@@ -1,7 +1,7 @@
 {
 	"name": "byterover",
-	"version": "0.8.1",
-	"description": "Answer company questions from your ByteRover Company Brain: accepted context about the company, product, team and decisions, and propose new facts for review.",
+	"version": "0.10.0",
+	"description": "Answer company questions from accepted ByteRover Company Brain context and submit knowledge for governed learning.",
 	"author": {
 		"name": "BYTEROVER, Inc.",
 		"email": "accounts@byterover.dev",
@@ -23,7 +23,7 @@
 	"interface": {
 		"displayName": "ByteRover",
 		"shortDescription": "Grounded company context from your ByteRover Company Brain.",
-		"longDescription": "Answer company questions from your ByteRover Company Brain: accepted context about the company, product, team and decisions, and propose new facts for review.",
+		"longDescription": "Answer company questions from accepted ByteRover Company Brain context and submit knowledge for governed learning.",
 		"developerName": "BYTEROVER, Inc.",
 		"category": "Productivity",
 		"websiteURL": "https://byterover.dev",
