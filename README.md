@@ -43,7 +43,7 @@ it to remember something and it files a proposal - it never writes accepted know
 
 ## Requirements
 
-A ByteRover account. The plugin connects to `https://dev-mcp.byterover.dev/mcp` and opens a browser
+A ByteRover account. The plugin connects to `https://mcp.byterover.ai/mcp` and opens a browser
 for sign-in and consent on first use. There is nothing to install or launch locally, and no
 particular operating system is required.
 
