@@ -1,0 +1,10 @@
+{
+	"name": "byterover",
+	"version": "0.10.1",
+	"description": "Answer company questions from accepted ByteRover Company Brain context and submit knowledge for governed learning.",
+	"mcpServers": {
+		"byterover-brain": {
+			"httpUrl": "https://mcp.byterover.ai/mcp"
+		}
+	}
+}

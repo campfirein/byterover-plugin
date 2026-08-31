@@ -3,7 +3,7 @@
 	"mcpServers": {
 		"byterover-brain": {
 			"type": "streamable-http",
-			"url": "https://dev-mcp.byterover.dev/mcp"
+			"url": "https://mcp.byterover.ai/mcp"
 		}
 	}
 }

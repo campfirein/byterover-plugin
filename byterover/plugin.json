@@ -2,13 +2,13 @@
 	"$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
 	"name": "byterover",
 	"description": "Answer company questions from accepted ByteRover Company Brain context and submit knowledge for governed learning.",
-	"version": "0.10.0",
+	"version": "0.10.1",
 	"author": {
 		"name": "BYTEROVER, Inc.",
-		"email": "accounts@byterover.dev",
-		"url": "https://byterover.dev"
+		"email": "accounts@byterover.ai",
+		"url": "https://byterover.ai"
 	},
-	"homepage": "https://byterover.dev",
+	"homepage": "https://byterover.ai",
 	"repository": "https://github.com/campfirein/byterover-plugin",
 	"license": "Elastic-2.0",
 	"keywords": [

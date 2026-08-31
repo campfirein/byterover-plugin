@@ -1,13 +1,13 @@
 {
 	"name": "byterover",
-	"version": "0.10.0",
+	"version": "0.10.1",
 	"description": "Answer company questions from accepted ByteRover Company Brain context and submit knowledge for governed learning.",
 	"author": {
 		"name": "BYTEROVER, Inc.",
-		"email": "accounts@byterover.dev",
-		"url": "https://byterover.dev"
+		"email": "accounts@byterover.ai",
+		"url": "https://byterover.ai"
 	},
-	"homepage": "https://byterover.dev",
+	"homepage": "https://byterover.ai",
 	"repository": "https://github.com/campfirein/byterover-plugin",
 	"license": "Elastic-2.0",
 	"keywords": [
@@ -26,7 +26,7 @@
 		"longDescription": "Answer company questions from accepted ByteRover Company Brain context and submit knowledge for governed learning.",
 		"developerName": "BYTEROVER, Inc.",
 		"category": "Productivity",
-		"websiteURL": "https://byterover.dev",
+		"websiteURL": "https://byterover.ai",
 		"logo": "./assets/logo.png"
 	}
 }
