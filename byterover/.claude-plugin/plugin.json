@@ -2,7 +2,7 @@
 	"name": "byterover",
 	"displayName": "ByteRover",
 	"description": "Answer company questions from accepted ByteRover Company Brain context and submit knowledge for governed learning.",
-	"version": "0.10.1",
+	"version": "1.0.0",
 	"author": {
 		"name": "BYTEROVER, Inc.",
 		"email": "accounts@byterover.ai",
