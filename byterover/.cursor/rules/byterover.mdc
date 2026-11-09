@@ -3,9 +3,16 @@ description: Search authorized enterprise documents, read ingested content, and 
 alwaysApply: false
 ---
 
-<!-- source-sha256: d18f8fd68c7de728ad4998b1d7457e38246520cb478de3084dca5832612f7a1f -->
+<!-- source-sha256: 92596a95d58458f5f5896c884473da6d68ecc528819c7bd5c9c13171011b0e9d -->
 
 # ByteRover
+
+## Connection bootstrap
+
+During an explicit install or update request, follow the packaged `INSTALL_AGENT.md` when ByteRover tools are missing
+or unauthenticated. Start the host authentication flow yourself. The user only completes browser sign-in and consent.
+Do not send the user to `/mcp` or ask them to run a login command unless automatic authentication fails. Resume after
+browser sign-in and verify that the host exposes exactly `search`, `read`, and `write`.
 
 Use only these tools:
 

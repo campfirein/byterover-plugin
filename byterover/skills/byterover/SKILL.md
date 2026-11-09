@@ -5,6 +5,13 @@ description: Search all enterprise documents allowed by current backend RBAC, re
 
 # ByteRover
 
+## Connection bootstrap
+
+During an explicit install or update request, follow the packaged `INSTALL_AGENT.md` when ByteRover tools are missing
+or unauthenticated. Start the host authentication flow yourself. The user only completes browser sign-in and consent.
+Do not send the user to `/mcp` or ask them to run a login command unless automatic authentication fails. Resume after
+browser sign-in and verify that the host exposes exactly `search`, `read`, and `write`.
+
 Use only these tools:
 
 - `search` finds evidence across every drive the current user can access.
