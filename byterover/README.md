@@ -14,7 +14,9 @@ Install and connect the development distribution of ByteRover from:
 https://github.com/campfirein/byterover-plugin
 
 Inspect the repository, detect the current host, use its native installation path, complete every step you can, and verify the connection.
-Do not overwrite existing configuration. Stop only when browser sign-in or one host restart requires me.
+Start the host authentication flow yourself. Do not ask me to open /mcp or run a login command.
+I only complete browser sign-in and consent. After that, resume and verify the connection.
+Do not overwrite existing configuration. Stop only if automatic authentication fails or one host restart is required.
 ```
 
 The repository README is the public installation entry point. Agents must follow the
