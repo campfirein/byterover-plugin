@@ -30,10 +30,13 @@ Install only for the current user and current host.
 - Never replace an existing ByteRover entry that points to a different repository or MCP URL. Report the conflict.
 - Do not copy tokens, cookies, authorization codes, or browser callback URLs into chat or files.
 - Let the host display its native permission prompt. Do not bypass it.
-- Start the host authentication flow yourself. Do not send the user to `/mcp` or ask the user to run a login command.
-- Let the user complete only browser sign-in and consent. Continue verification after the authentication flow returns.
-- If automatic authentication fails, report the exact failed command or host action and its error. Only then may the
-  user need a manual authentication action.
+- Start ByteRover MCP OAuth automatically only if the current host and its permission policy allow that action. Do not
+  bypass, change, or work around the permission policy.
+- When browser OAuth opens, wait for the user to complete sign-in and consent; do not complete those actions. Continue
+  verification after the authentication flow returns.
+- If the host blocks, denies, or does not support automatic MCP OAuth, report the exact blocked action and provide the
+  exact host-specific manual step to start it. If that step cannot be determined for the current host, say so instead
+  of guessing.
 - If the current session cannot load a newly installed plugin, finish the command-line checks and ask for exactly one
   restart. Do not claim that tools are available in the current session until the host shows them.
 
@@ -95,15 +98,16 @@ Install only for the current user and current host.
    claude plugin enable byterover@byterover --scope user
    ```
 
-7. Inspect `claude mcp list`. If `plugin:byterover:byterover` needs authentication, run this command yourself. Do not
-   stop before it starts browser OAuth:
+7. Inspect `claude mcp list`. If `plugin:byterover:byterover` needs authentication, check whether the current host
+   permits local command execution. Only if it is permitted, run this command automatically to start browser OAuth:
 
    ```sh
    claude mcp login 'plugin:byterover:byterover'
    ```
 
-   Let the user complete the browser page. After the command returns, rerun `claude mcp list`. Do not direct the user
-   to `/mcp` unless this command fails.
+   Wait for the user to complete the browser page. After the command returns, rerun `claude mcp list`. If the host
+   blocks, denies, or does not support the command, report the cause and provide this exact command as the manual
+   fallback.
 8. Verify that `claude plugin list` shows `byterover@byterover` as enabled and `claude mcp list` shows
    `plugin:byterover:byterover` as connected. A pending or unauthenticated state is not success.
 
@@ -116,8 +120,10 @@ Install only for the current user and current host.
    `byterover` plugin. Do not use Claude Code shell commands as a substitute for the desktop plugin manager.
 4. Let Claude Desktop show its native plugin approval. Ask the user to approve that prompt only when the app requires
    it. Do not bypass or simulate the approval.
-5. Start ByteRover OAuth through Claude Desktop so the app opens the browser. Do not ask the user to find or start the
-   connection. Let the user complete only browser sign-in and consent, then resume verification in the app.
+5. Start ByteRover MCP OAuth automatically only if Claude Desktop permits it, so the app opens the browser. Wait for
+   the user to complete browser sign-in and consent; do not complete those actions. Then resume verification in the
+   app. If the app blocks, denies, or does not support the action, report it and provide the exact manual path in
+   Claude Desktop.
 6. Open a new Claude Desktop conversation after installation. Verify that ByteRover exposes exactly `search`, `read`,
    and `write` before reporting functional success.
 
@@ -173,15 +179,16 @@ Install only for the current user and current host.
    codex plugin add byterover@byterover --json
    ```
 
-7. Inspect `codex mcp list`. If `byterover` needs authentication, run this command yourself. Do not stop before it
-   starts browser OAuth:
+7. Inspect `codex mcp list`. If `byterover` needs authentication, check whether the current host permits local command
+   execution. Only if it is permitted, run this command automatically to start browser OAuth:
 
    ```sh
    codex mcp login byterover
    ```
 
-   Let the user complete the browser page. After the command returns, rerun `codex mcp list`. Do not ask the user to
-   run this command manually unless it fails.
+   Wait for the user to complete the browser page. After the command returns, rerun `codex mcp list`. If the host
+   blocks, denies, or does not support the command, report the cause and provide this exact command as the manual
+   fallback.
 8. Verify that `codex plugin list --json` shows `byterover@byterover` as enabled and `codex mcp list` shows
    `byterover` with OAuth authentication. A pending or unauthenticated state is not success.
 
@@ -198,8 +205,10 @@ Install into the current project only when the current working directory is the 
    a ByteRover `source-sha256` marker, hash the canonical body and require it to equal that marker before replacing
    the file. A mismatch means the user changed it; stop and report the conflict. Also stop if the marker is absent.
 4. Parse the final MCP file as JSON before reporting success.
-5. Ask for one Cursor restart. After restart, start ByteRover OAuth through `Customize` > `MCPs` > `byterover`
-   yourself. Let the user complete only browser sign-in and consent, then resume and verify the connection.
+5. Ask for one Cursor restart. After restart, start ByteRover MCP OAuth automatically through `Customize` > `MCPs` >
+   `byterover` only if Cursor permits it. Wait for the user to complete browser sign-in and consent; do not complete
+   those actions. Then resume and verify the connection. If Cursor blocks, denies, or does not support the action,
+   report it and provide this exact manual path.
 
 Do not overwrite an existing `.cursor/mcp.json` with the distribution file.
 
@@ -210,7 +219,9 @@ Grok Bot supports the remote MCP connection, not this host-specific skill packag
 1. Use the MCP server URL declared in the packaged contract from the marketplace repository.
 2. Inspect existing custom MCP connections. If `byterover` is absent, add it with that URL. If it has the same URL,
    reuse it. If it has another URL, stop and report the conflict. Never replace the existing connection.
-3. Start the connection's OAuth flow yourself. Let the user complete only browser sign-in and consent, then resume.
+3. Start the connection's MCP OAuth flow automatically only if Grok Bot permits it. Wait for the user to complete
+   browser sign-in and consent; do not complete those actions. Then resume. If Grok Bot blocks, denies, or does not
+   support the action, report it and provide the exact manual path.
 4. Verify that Grok Bot discovers the ByteRover tools.
 
 ## Unsupported hosts

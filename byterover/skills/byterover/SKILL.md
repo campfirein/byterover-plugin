@@ -8,9 +8,13 @@ description: Search all enterprise documents allowed by current backend RBAC, re
 ## Connection bootstrap
 
 During an explicit install or update request, follow the packaged `INSTALL_AGENT.md` when ByteRover tools are missing
-or unauthenticated. Start the host authentication flow yourself. The user only completes browser sign-in and consent.
-Do not send the user to `/mcp` or ask them to run a login command unless automatic authentication fails. Resume after
-browser sign-in and verify that the host exposes exactly `search`, `read`, and `write`.
+or unauthenticated. Start ByteRover MCP OAuth automatically only if the current host and its permission policy allow
+that action. Do not bypass, change, or work around the permission policy. When browser OAuth opens, wait for the user
+to complete sign-in and consent; do not complete those actions. Then resume and
+verify that the host exposes exactly `search`, `read`, and `write`.
+If the host blocks, denies, or does not support automatic MCP OAuth, report the exact blocked action and provide the
+exact host-specific manual step to start it. If that step cannot be determined for the current host, say so instead of
+guessing.
 
 Use only these tools:
 

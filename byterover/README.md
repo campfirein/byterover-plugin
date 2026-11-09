@@ -14,9 +14,10 @@ Install and connect the development distribution of ByteRover from:
 https://github.com/campfirein/byterover-plugin
 
 Inspect the repository, detect the current host, use its native installation path, complete every step you can, and verify the connection.
-Start the host authentication flow yourself. Do not ask me to open /mcp or run a login command.
-I only complete browser sign-in and consent. After that, resume and verify the connection.
-Do not overwrite existing configuration. Stop only if automatic authentication fails or one host restart is required.
+Start ByteRover MCP OAuth automatically only if the current host and its permission policy allow that action. Do not bypass, change, or work around the permission policy.
+When browser OAuth opens, I will complete sign-in and consent myself; do not complete them for me. Wait for me to finish, then resume and verify the ByteRover MCP connection.
+If the host blocks, denies, or does not support automatic MCP OAuth, report the exact blocked action and provide the exact host-specific manual step to start it. If you cannot determine that step for this host, say so instead of guessing.
+Do not overwrite existing configuration.
 ```
 
 The repository README is the public installation entry point. Agents must follow the
