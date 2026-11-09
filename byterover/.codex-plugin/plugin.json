@@ -1,32 +1,25 @@
 {
-	"name": "byterover",
-	"version": "1.0.0",
-	"description": "Answer company questions from accepted ByteRover Company Brain context and submit knowledge for governed learning.",
-	"author": {
-		"name": "BYTEROVER, Inc.",
-		"email": "accounts@byterover.ai",
-		"url": "https://byterover.ai"
-	},
-	"homepage": "https://byterover.ai",
-	"repository": "https://github.com/campfirein/byterover-plugin",
-	"license": "Elastic-2.0",
-	"keywords": [
-		"byterover",
-		"company-brain",
-		"context",
-		"knowledge",
-		"memory",
-		"documentation"
-	],
-	"mcpServers": "./mcp.json",
-	"skills": "./skills/",
-	"interface": {
-		"displayName": "ByteRover",
-		"shortDescription": "Grounded company context from your ByteRover Company Brain.",
-		"longDescription": "Answer company questions from accepted ByteRover Company Brain context and submit knowledge for governed learning.",
-		"developerName": "BYTEROVER, Inc.",
-		"category": "Productivity",
-		"websiteURL": "https://byterover.ai",
-		"logo": "./assets/logo.png"
-	}
+  "name": "byterover",
+  "version": "0.1.4",
+  "description": "Search authorized enterprise documents, read ingested content, and upload complete files with ByteRover.",
+  "author": {
+    "name": "BYTEROVER, Inc.",
+    "email": "accounts@byterover.ai",
+    "url": "https://byterover.ai"
+  },
+  "homepage": "https://byterover.ai",
+  "repository": "https://github.com/campfirein/byterover-plugin",
+  "license": "Elastic-2.0",
+  "keywords": ["byterover", "enterprise-search", "semantic-search", "documents", "mcp"],
+  "mcpServers": "./mcp.json",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "ByteRover",
+    "shortDescription": "Search and read authorized company documents.",
+    "longDescription": "Search every company drive you can access, read exact ingested content, and upload complete files through ByteRover.",
+    "developerName": "BYTEROVER, Inc.",
+    "category": "Productivity",
+    "capabilities": ["Read", "Write"],
+    "websiteURL": "https://byterover.ai"
+  }
 }

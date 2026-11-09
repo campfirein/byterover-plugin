@@ -1,31 +1,31 @@
 {
-	"name": "byterover",
-	"description": "ByteRover's plugin marketplace: grounded company context from your Company Brain.",
-	"owner": {
-		"name": "ByteRover",
-		"url": "https://github.com/campfirein"
-	},
-	"plugins": [
-		{
-			"name": "byterover",
-			"source": "./byterover",
-			"description": "Grounded company context from your ByteRover Company Brain.",
-			"category": "Productivity",
-			"keywords": [
-				"byterover",
-				"company-brain",
-				"context",
-				"knowledge",
-				"memory",
-				"documentation"
-			],
-			"author": {
-				"name": "BYTEROVER, Inc.",
-				"email": "accounts@byterover.dev",
-				"url": "https://byterover.ai"
-			},
-			"homepage": "https://byterover.ai",
-			"license": "Elastic-2.0"
-		}
-	]
+  "name": "byterover",
+  "description": "ByteRover plugins for authorized enterprise search and document access.",
+  "owner": {
+    "name": "ByteRover",
+    "url": "https://github.com/campfirein"
+  },
+  "plugins": [
+    {
+      "name": "byterover",
+      "source": "./byterover",
+      "description": "Search authorized enterprise documents, read ingested content, and upload complete files with ByteRover.",
+      "category": "Productivity",
+      "keywords": [
+        "byterover",
+        "enterprise-search",
+        "semantic-search",
+        "documents",
+        "mcp"
+      ],
+      "author": {
+        "name": "BYTEROVER, Inc.",
+        "email": "accounts@byterover.ai",
+        "url": "https://byterover.ai"
+      },
+      "homepage": "https://byterover.ai",
+      "license": "Elastic-2.0",
+      "version": "0.1.4"
+    }
+  ]
 }
