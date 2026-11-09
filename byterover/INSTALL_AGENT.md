@@ -101,6 +101,19 @@ Install only for the current user and current host.
 8. Verify that `claude plugin list` shows `byterover@byterover` as enabled and `claude mcp list` shows
    `plugin:byterover:byterover` as connected.
 
+## Claude Desktop
+
+1. Confirm from the runtime context that the current host is Claude Desktop, not Claude Code.
+2. Inspect the native plugin manager before changing anything. If ByteRover already exists, require its marketplace
+   source to equal `marketplace-source` and its remote MCP URL to equal this contract. Stop on either mismatch.
+3. If ByteRover is absent, use Claude Desktop's native plugin manager to add the marketplace source and install the
+   `byterover` plugin. Do not use Claude Code shell commands as a substitute for the desktop plugin manager.
+4. Let Claude Desktop show its native plugin approval. Ask the user to approve that prompt only when the app requires
+   it. Do not bypass or simulate the approval.
+5. Complete ByteRover OAuth when Claude Desktop opens the browser consent flow.
+6. Open a new Claude Desktop conversation after installation. Verify that ByteRover exposes exactly `search`, `read`,
+   and `write` before reporting functional success.
+
 ## Codex
 
 1. Inspect the current installation with `codex plugin marketplace list --json`, `codex plugin list --json`, and
@@ -192,9 +205,9 @@ Grok Bot supports the remote MCP connection, not this host-specific skill packag
 
 ## Unsupported hosts
 
-Do not invent an installation path. Explain that this repository currently provides verified installation contracts
-for Claude Code, Codex, Cursor, and the Grok Bot MCP connection. A hosted product may require a catalog submission or
-administrator-managed connector.
+Do not invent an installation path. Explain that this repository currently provides installation contracts for Claude
+Code, Claude Desktop, Codex, Cursor, and the Grok Bot MCP connection. Another hosted product may require a catalog
+submission or administrator-managed connector.
 
 ## Functional verification
 

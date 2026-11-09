@@ -13,7 +13,7 @@ ByteRover.
 
 ## Install with an agent
 
-Paste this prompt into Claude Code, Codex, Cursor, or Grok Bot:
+Paste this prompt into Claude Code, Claude Desktop, Codex, Cursor, or Grok Bot:
 
 ```text
 Install and connect the development distribution of ByteRover from:
@@ -41,6 +41,11 @@ Complete OAuth when Codex opens the browser, then verify `search`.
 claude plugin marketplace add campfirein/byterover-plugin --scope user
 claude plugin install byterover@byterover --scope user
 ```
+
+## Install in Claude Desktop
+
+Paste the installation prompt above into Claude Desktop. Let its native plugin manager add ByteRover, approve the
+plugin when the app asks, and complete OAuth. The prompt does not bypass native approval or consent.
 
 ## Install in Cursor
 
