@@ -1,6 +1,6 @@
 {
   "name": "byterover",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Search authorized enterprise documents, read ingested content, and upload complete files with ByteRover.",
   "author": {
     "name": "BYTEROVER, Inc.",

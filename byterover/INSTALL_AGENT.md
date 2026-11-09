@@ -216,19 +216,35 @@ Do not overwrite an existing `.cursor/mcp.json` with the distribution file.
 
 Grok Bot supports the remote MCP connection, not this host-specific skill package.
 
-1. Use the MCP server URL declared in the packaged contract from the marketplace repository.
+1. Use the MCP server URL declared in the packaged contract from the marketplace repository. Open Grok Connectors,
+   choose New Connector, then Custom.
 2. Inspect existing custom MCP connections. If `byterover` is absent, add it with that URL. If it has the same URL,
    reuse it. If it has another URL, stop and report the conflict. Never replace the existing connection.
 3. Start the connection's MCP OAuth flow automatically only if Grok Bot permits it. Wait for the user to complete
    browser sign-in and consent; do not complete those actions. Then resume. If Grok Bot blocks, denies, or does not
    support the action, report it and provide the exact manual path.
-4. Verify that Grok Bot discovers the ByteRover tools.
+4. Verify that Grok Bot discovers exactly `search`, `read`, and `write`.
+
+## ChatGPT and Dot
+
+ChatGPT installs the portable plugin archive. Dot uses the same plugin permission; it does not install a second copy.
+
+1. Download `byterover-plugin.zip` and its SHA-256 sidecar from the latest release of the exact marketplace source.
+   Verify the checksum before uploading.
+2. Inspect ChatGPT Plugins. If ByteRover already exists, require its MCP URL to equal this contract. Stop on a
+   mismatch. Do not delete or replace the existing connection.
+3. If ByteRover is absent, choose Add > Upload plugin archive and select the verified ZIP. Review the discovered
+   skill and remote MCP server, then install the plugin.
+4. Start ByteRover MCP OAuth through ChatGPT when the host permits it. Wait for the user to complete browser sign-in
+   and consent. Installing the ZIP alone is not authentication.
+5. Open the Dot, then open Customize > Plugins. Enable the shared ByteRover plugin and verify exactly `search`,
+   `read`, and `write` in a new Dot conversation.
 
 ## Unsupported hosts
 
 Do not invent an installation path. Explain that this repository currently provides installation contracts for Claude
-Code, Claude Desktop, Codex, Cursor, and the Grok Bot MCP connection. Another hosted product may require a catalog
-submission or administrator-managed connector.
+Code, Claude Desktop, Codex, Cursor, Grok Bot, ChatGPT, and Dot. Another hosted product may require a catalog submission
+or administrator-managed connector.
 
 ## Functional verification
 

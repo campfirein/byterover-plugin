@@ -13,7 +13,7 @@ ByteRover.
 
 ## Install with an agent
 
-Paste this prompt into Claude Code, Claude Desktop, Codex, Cursor, or Grok Bot:
+Paste this prompt into Claude Code, Claude Desktop, Codex, or Cursor:
 
 ```text
 Install and connect the development distribution of ByteRover from:
@@ -57,8 +57,14 @@ preserves other servers, and stops on local rule changes.
 
 ## Install in Grok Bot
 
-Add `https://dev-mcp.byterover.ai/mcp` as a custom remote MCP server named `byterover`, then complete OAuth. Grok Bot receives MCP
-tools but not the host skill.
+Open Grok Connectors, choose New Connector > Custom, add `https://dev-mcp.byterover.ai/mcp` as `byterover`, then complete OAuth.
+Grok Bot receives MCP tools but not the host skill.
+
+## Install in ChatGPT and Dot
+
+Download `byterover-plugin.zip` from the latest GitHub release. In ChatGPT Plugins, choose Add > Upload plugin
+archive, select the ZIP, install ByteRover, and complete OAuth. Open the Dot, then enable ByteRover under Customize >
+Plugins. ChatGPT and Dot share the resulting plugin permission.
 
 ## Repository boundary
 

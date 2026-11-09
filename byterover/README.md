@@ -7,7 +7,7 @@ Distribution channel: development.
 
 ## Install with an agent
 
-Paste this prompt into Claude Code, Claude Desktop, Codex, Cursor, or Grok Bot:
+Paste this prompt into Claude Code, Claude Desktop, Codex, or Cursor:
 
 ```text
 Install and connect the development distribution of ByteRover from:
@@ -39,3 +39,13 @@ Codex users may also run:
 codex plugin marketplace add campfirein/byterover-plugin
 codex plugin add byterover@byterover
 ```
+
+## ChatGPT and Dot
+
+Download the latest `byterover-plugin.zip` from the public repository release, then use ChatGPT Plugins > Add >
+Upload plugin archive. Install ByteRover and complete OAuth. Dot uses the same plugin permission as ChatGPT.
+
+## Grok Bot
+
+Open Grok Connectors, add a Custom connector with `https://dev-mcp.byterover.ai/mcp`, and complete OAuth. Grok receives the remote
+MCP tools but does not install the ByteRover skill package.
