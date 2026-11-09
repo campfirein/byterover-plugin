@@ -179,16 +179,24 @@ Install only for the current user and current host.
    codex plugin add byterover@byterover --json
    ```
 
-7. Inspect `codex mcp list`. If `byterover` needs authentication, check whether the current host permits local command
-   execution. Only if it is permitted, run this command automatically to start browser OAuth:
+7. Inspect `codex mcp list`. Before starting either authentication command below, require the current host to permit
+   local command execution. If `byterover` is absent, add the packaged server and start browser OAuth in one command:
 
    ```sh
-   codex mcp login byterover
+   codex mcp add byterover --url "https://dev-mcp.byterover.ai/mcp" --oauth-client-registration dcr
    ```
 
-   Wait for the user to complete the browser page. After the command returns, rerun `codex mcp list`. If the host
-   blocks, denies, or does not support the command, report the cause and provide this exact command as the manual
-   fallback.
+   If `byterover` already exists, require its URL to equal `https://dev-mcp.byterover.ai/mcp`. Stop and report a conflict when the
+   existing URL differs. If the URL matches but the entry needs authentication, run this command automatically to
+   start browser OAuth with the same registration strategy:
+
+   ```sh
+   codex mcp login byterover --oauth-client-registration dcr
+   ```
+
+   Wait for the user to complete the browser page. After either command returns, rerun `codex mcp list`. If the host
+   blocks, denies, or does not support the required command, report the cause and provide that exact command as the
+   manual fallback.
 8. Verify that `codex plugin list --json` shows `byterover@byterover` as enabled and `codex mcp list` shows
    `byterover` with OAuth authentication. A pending or unauthenticated state is not success.
 
