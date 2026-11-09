@@ -3,17 +3,7 @@
   "mcpServers": {
     "byterover": {
       "type": "streamable-http",
-      "url": "https://dev-mcp.byterover.ai/mcp",
-      "extensions": {
-        "com.openai": {
-          "auth": {
-            "type": "oauth",
-            "client": {
-              "mode": "dcr"
-            }
-          }
-        }
-      }
+      "url": "https://dev-mcp.byterover.ai/mcp"
     }
   }
 }

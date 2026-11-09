@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "byterover",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Search authorized enterprise documents, read ingested content, and upload complete files with ByteRover.",
   "author": {
     "name": "BYTEROVER, Inc.",
