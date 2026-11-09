@@ -1,0 +1,103 @@
+name: plugin-archive
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "byterover/**"
+      - ".github/workflows/plugin-archive.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: plugin-archive
+  cancel-in-progress: false
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+
+      - name: Validate and package the plugin
+        id: bundle
+        shell: bash
+        run: |
+          set -euo pipefail
+          version="$(node -e 'const {readFileSync}=require("node:fs");process.stdout.write(JSON.parse(readFileSync("byterover/plugin.json","utf8")).version)')"
+          echo "version=${version}" >> "${GITHUB_OUTPUT}"
+          for file in \
+            byterover/plugin.json \
+            byterover/mcp.json \
+            byterover/.codex-plugin/plugin.json \
+            byterover/.claude-plugin/plugin.json \
+            byterover/skills/byterover/SKILL.md; do
+            test -f "${file}" || { echo "missing required plugin file: ${file}" >&2; exit 1; }
+          done
+          mkdir -p "${RUNNER_TEMP}/plugin-archive"
+          mkdir -p \
+            "${RUNNER_TEMP}/plugin-archive/byterover/.codex-plugin" \
+            "${RUNNER_TEMP}/plugin-archive/byterover/skills"
+          cp byterover/plugin.json "${RUNNER_TEMP}/plugin-archive/byterover/plugin.json"
+          cp byterover/mcp.json "${RUNNER_TEMP}/plugin-archive/byterover/mcp.json"
+          cp -R byterover/.codex-plugin/plugin.json \
+            "${RUNNER_TEMP}/plugin-archive/byterover/.codex-plugin/plugin.json"
+          cp -R byterover/skills/byterover "${RUNNER_TEMP}/plugin-archive/byterover/skills/byterover"
+          (
+            cd "${RUNNER_TEMP}/plugin-archive"
+            find byterover -exec touch -t 198001010000 {} +
+            find byterover -type f -print | LC_ALL=C sort > "${RUNNER_TEMP}/archive-files.txt"
+            zip -X -q "${RUNNER_TEMP}/byterover-plugin.zip" -@ < "${RUNNER_TEMP}/archive-files.txt"
+          )
+          unzip -Z1 "${RUNNER_TEMP}/byterover-plugin.zip" > "${RUNNER_TEMP}/archive-files.txt"
+          node -e 'const {readFileSync}=require("node:fs");const files=readFileSync(process.argv[1],"utf8").trim().split("\n");if(!files.length||files.some((file)=>!file.startsWith("byterover/")))process.exit(1)' \
+            "${RUNNER_TEMP}/archive-files.txt"
+          (
+            cd "${RUNNER_TEMP}"
+            sha256sum byterover-plugin.zip > byterover-plugin.zip.sha256
+          )
+
+      - name: Upload the workflow artifact
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: byterover-plugin-${{ steps.bundle.outputs.version }}
+          path: |
+            ${{ runner.temp }}/byterover-plugin.zip
+            ${{ runner.temp }}/byterover-plugin.zip.sha256
+          if-no-files-found: error
+
+      - name: Publish the stable download
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ steps.bundle.outputs.version }}
+        run: |
+          set -euo pipefail
+          tag="plugin-v${VERSION}"
+          if gh release view "${tag}" --repo "${GITHUB_REPOSITORY}" >/dev/null 2>&1; then
+            mkdir -p "${RUNNER_TEMP}/existing-release"
+            gh release download "${tag}" \
+              --pattern byterover-plugin.zip.sha256 \
+              --dir "${RUNNER_TEMP}/existing-release" \
+              --repo "${GITHUB_REPOSITORY}"
+            cmp \
+              "${RUNNER_TEMP}/existing-release/byterover-plugin.zip.sha256" \
+              "${RUNNER_TEMP}/byterover-plugin.zip.sha256" || {
+              echo "release ${tag} already exists with different content" >&2
+              exit 1
+            }
+            echo "release ${tag} already contains this immutable archive"
+            exit 0
+          fi
+          gh release create "${tag}" \
+            "${RUNNER_TEMP}/byterover-plugin.zip" \
+            "${RUNNER_TEMP}/byterover-plugin.zip.sha256" \
+            --target "${GITHUB_SHA}" \
+            --title "ByteRover plugin ${VERSION}" \
+            --notes "Install ByteRover from the attached plugin archive." \
+            --repo "${GITHUB_REPOSITORY}"
