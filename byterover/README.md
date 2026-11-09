@@ -7,7 +7,7 @@ Distribution channel: development.
 
 ## Install with an agent
 
-Paste this prompt into Claude Code, Codex, Cursor, or Grok Bot:
+Paste this prompt into Claude Code, Claude Desktop, Codex, Cursor, or Grok Bot:
 
 ```text
 Install and connect the development distribution of ByteRover from:
