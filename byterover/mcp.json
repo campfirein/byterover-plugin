@@ -1,9 +1,9 @@
 {
-	"$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
-	"mcpServers": {
-		"byterover-brain": {
-			"type": "streamable-http",
-			"url": "https://mcp.byterover.ai/mcp"
-		}
-	}
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "byterover": {
+      "type": "streamable-http",
+      "url": "https://dev-mcp.byterover.ai/mcp"
+    }
+  }
 }

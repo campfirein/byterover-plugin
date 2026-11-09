@@ -1,22 +1,15 @@
 {
-	"$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
-	"name": "byterover",
-	"description": "Answer company questions from accepted ByteRover Company Brain context and submit knowledge for governed learning.",
-	"version": "1.0.0",
-	"author": {
-		"name": "BYTEROVER, Inc.",
-		"email": "accounts@byterover.ai",
-		"url": "https://byterover.ai"
-	},
-	"homepage": "https://byterover.ai",
-	"repository": "https://github.com/campfirein/byterover-plugin",
-	"license": "Elastic-2.0",
-	"keywords": [
-		"byterover",
-		"company-brain",
-		"context",
-		"knowledge",
-		"memory",
-		"documentation"
-	]
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "byterover",
+  "version": "0.1.4",
+  "description": "Search authorized enterprise documents, read ingested content, and upload complete files with ByteRover.",
+  "author": {
+    "name": "BYTEROVER, Inc.",
+    "email": "accounts@byterover.ai",
+    "url": "https://byterover.ai"
+  },
+  "homepage": "https://byterover.ai",
+  "repository": "https://github.com/campfirein/byterover-plugin",
+  "license": "Elastic-2.0",
+  "keywords": ["byterover", "enterprise-search", "semantic-search", "documents", "mcp"]
 }

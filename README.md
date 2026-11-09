@@ -1,63 +1,66 @@
-# ByteRover plugin marketplace
+# ByteRover plugin
 
-The ByteRover plugin gives your coding agent grounded company context from your ByteRover Company
-Brain: accepted facts about the company, product, team and decisions, read at the moment your agent
-needs them.
+Development distribution of the ByteRover search, read, and whole-file upload plugin for AI
+agents.
 
-## Install
+## Development endpoints
 
-Claude Code:
+- MCP server: `https://dev-mcp.byterover.ai/mcp`
+- OAuth server: `https://dev.byterover.ai`
 
-```bash
-claude plugin marketplace add campfirein/byterover-plugin
+The development server requires OAuth. The host opens the sign-in and consent flow when the plugin first calls
+ByteRover.
+
+## Install with an agent
+
+Paste this prompt into Claude Code, Codex, Cursor, or Grok Bot:
+
+```text
+Install and connect the development distribution of ByteRover from:
+https://github.com/campfirein/byterover-plugin
+
+Inspect the repository, detect the current host, use its native installation path, complete every step you can, and verify the connection.
+Do not overwrite existing configuration. Stop only when browser sign-in or one host restart requires me.
 ```
 
-Then install the plugin:
+Agents must follow the [packaged installation contract](byterover/INSTALL_AGENT.md) for every host. The user-facing
+prompt needs only this repository URL.
 
+## Install in Codex
+
+```sh
+codex plugin marketplace add campfirein/byterover-plugin
+codex plugin add byterover@byterover
 ```
-/plugin install byterover@byterover
+
+Complete OAuth when Codex opens the browser, then verify `search`.
+
+## Install in Claude Code
+
+```sh
+claude plugin marketplace add campfirein/byterover-plugin --scope user
+claude plugin install byterover@byterover --scope user
 ```
 
-Cowork: open Customize, then Plugins, then Add marketplace, and enter
-`campfirein/byterover-plugin`. Click Save plugin on the card to finish.
+## Install in Cursor
 
-Other agents read the same directory through the [Agent Plugins](https://agent-plugins.org)
-format. Point your client's plugin setup at the `byterover/` directory of this repository, and
-follow that client's own install instructions.
+Follow the [packaged installation contract](byterover/INSTALL_AGENT.md). It merges only the ByteRover server entry,
+preserves other servers, and stops on local rule changes.
 
-Restart the session, or run `/reload-plugins`, before the skill loads.
+## Install in Grok Bot
 
-## What you get
+Add `https://dev-mcp.byterover.ai/mcp` as a custom remote MCP server named `byterover`, then complete OAuth. Grok Bot receives MCP
+tools but not the host skill.
 
-Two things, and they work together:
+## Repository boundary
 
-- **The `byterover-company-brain` skill.** It tells your agent when to reach for the Brain and how
-  to report what came back - to answer from returned objects only, and to say that context is
-  missing rather than guess.
-- **The `byterover-brain` MCP server.** `brain__query` reads accepted context. `brain__learn`
-  proposes a new statement, which stays pending until someone reviews it in ByteRover.
+This repository contains generated distribution files. The private source repository owns the plugin, skill,
+generator, and tests. `SOURCE.json` records the source commit used for this development package.
 
-So you can ask your agent "what did we decide about billing retries?" or "who owns the ingest
-pipeline?" and get an answer sourced from the Brain instead of from the repository or a guess. Ask
-it to remember something and it files a proposal - it never writes accepted knowledge on its own.
-
-## Requirements
-
-A ByteRover account. The plugin connects to `https://mcp.byterover.ai/mcp` and opens a browser
-for sign-in and consent on first use. There is nothing to install or launch locally, and no
-particular operating system is required.
-
-Company Brain query and governed learning are available through the remote connection.
-
-## What is here
-
-- `.claude-plugin/marketplace.json`: the marketplace catalog. Authored by hand.
-- `byterover/`: the plugin itself. **Generated.** It is built from `apps/plugin` in the ByteRover
-  repository and published here by a release job. Do not edit it: the next release overwrites the
-  whole directory.
+Do not edit generated files here. Change the source, rebuild the package, and publish it with a
+`plugin-v<version>` source tag. The release workflow opens a generated pull request in this repository.
 
 ## Updates
 
-Run `/plugin marketplace update` to pick up a new version. A host only offers an update when the
-version in the manifest changes, so every release carries one - including a release that only
-changes the Company Brain skill your agent follows.
+The default branch is the release stream. Hosts detect updates from the version in the plugin manifests. Users do not
+install a versioned repository tag.
