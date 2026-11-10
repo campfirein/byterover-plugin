@@ -99,5 +99,5 @@ jobs:
             "${RUNNER_TEMP}/byterover-plugin.zip.sha256" \
             --target "${GITHUB_SHA}" \
             --title "ByteRover plugin ${VERSION}" \
-            --notes "Install ByteRover from the attached plugin archive." \
+            --notes "This archive is for compatible desktop apps. Hosted ChatGPT and Dot must not use the ZIP. The Dot remote MCP flow is development-only until acceptance." \
             --repo "${GITHUB_REPOSITORY}"

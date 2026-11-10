@@ -22,6 +22,7 @@ https://github.com/campfirein/byterover-plugin
 Inspect the repository, detect the current host, use its native installation path, complete every step you can, and verify the connection.
 Start ByteRover MCP OAuth automatically only if the current host and its permission policy allow that action. Do not bypass, change, or work around the permission policy.
 When browser OAuth opens, I will complete sign-in and consent myself; do not complete them for me. Wait for me to finish, then resume and verify the ByteRover MCP connection.
+After installation and OAuth, restart the host or open a new conversation if the current conversation does not reload newly connected tools. In the new conversation, explicitly ask the host to use ByteRover and verify a real ByteRover tool call.
 If the host blocks, denies, or does not support automatic MCP OAuth, report the exact blocked action and provide the exact host-specific manual step to start it. If you cannot determine that step for this host, say so instead of guessing.
 Do not overwrite existing configuration.
 ```
@@ -58,13 +59,14 @@ preserves other servers, and stops on local rule changes.
 ## Install in Grok Bot
 
 Open Grok Connectors, choose New Connector > Custom, add `https://dev-mcp.byterover.ai/mcp` as `byterover`, then complete OAuth.
-Grok Bot receives MCP tools but not the host skill.
+Grok Bot receives MCP tools but not the host skill. Open a new conversation and explicitly ask it to use ByteRover.
+Do not repeat OAuth unless the connector settings report an authentication error.
 
 ## Install in ChatGPT and Dot
 
-Download `byterover-plugin.zip` from the latest GitHub release. In ChatGPT Plugins, choose Add > Upload plugin
-archive, select the ZIP, install ByteRover, and complete OAuth. Open the Dot, then enable ByteRover under Customize >
-Plugins. ChatGPT and Dot share the resulting plugin permission.
+In ChatGPT Plugins, choose Add > Add custom MCP server and enter `https://dev-mcp.byterover.ai/mcp`. Complete OAuth, create
+ByteRover as a plugin backed by that remote MCP server, then enable ByteRover under Customize > Plugins in the Dot.
+Do not upload the desktop plugin ZIP. Start a new Dot conversation and explicitly ask it to use ByteRover.
 
 ## Repository boundary
 

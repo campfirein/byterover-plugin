@@ -231,22 +231,28 @@ Grok Bot supports the remote MCP connection, not this host-specific skill packag
 3. Start the connection's MCP OAuth flow automatically only if Grok Bot permits it. Wait for the user to complete
    browser sign-in and consent; do not complete those actions. Then resume. If Grok Bot blocks, denies, or does not
    support the action, report it and provide the exact manual path.
-4. Verify that Grok Bot discovers exactly `search`, `read`, and `write`.
+4. After the connector reports connected, open a new Grok Bot conversation. Explicitly ask it to use ByteRover before
+   verification. A connected app and a conversation that has loaded its tools are separate states.
+5. Verify that Grok Bot discovers exactly `search`, `read`, and `write`. If the new conversation still says ByteRover
+   is not connected, report both states. Do not repeat OAuth unless the connector settings report an authentication
+   error.
 
 ## ChatGPT and Dot
 
-ChatGPT installs the portable plugin archive. Dot uses the same plugin permission; it does not install a second copy.
+Hosted ChatGPT and Dot use the remote MCP flow. The desktop plugin ZIP is not a hosted Dot installation package.
 
-1. Download `byterover-plugin.zip` and its SHA-256 sidecar from the latest release of the exact marketplace source.
-   Verify the checksum before uploading.
-2. Inspect ChatGPT Plugins. If ByteRover already exists, require its MCP URL to equal this contract. Stop on a
+1. Inspect ChatGPT Plugins. If ByteRover is labeled Desktop only or was installed from a ZIP, stop and report it. Do
+   not reuse or remove that entry. Ask the user to remove it before adding the remote MCP server.
+2. If an existing ByteRover plugin uses the remote MCP flow, require its MCP URL to equal this contract. Stop on a
    mismatch. Do not delete or replace the existing connection.
-3. If ByteRover is absent, choose Add > Upload plugin archive and select the verified ZIP. Review the discovered
-   skill and remote MCP server, then install the plugin.
+3. If no remote ByteRover plugin exists, choose Add > Add custom MCP server. Enter the exact MCP URL from this contract
+   and start the connection.
 4. Start ByteRover MCP OAuth through ChatGPT when the host permits it. Wait for the user to complete browser sign-in
-   and consent. Installing the ZIP alone is not authentication.
-5. Open the Dot, then open Customize > Plugins. Enable the shared ByteRover plugin and verify exactly `search`,
-   `read`, and `write` in a new Dot conversation.
+   and consent.
+5. Create ByteRover as a plugin backed by the authenticated remote MCP server.
+6. Open the Dot, then open Customize > Plugins. Enable ByteRover.
+7. Start a new Dot conversation after enabling the plugin. Explicitly ask it to use ByteRover, then verify exactly
+   `search`, `read`, and `write`. Existing conversations may keep the tool list from before installation.
 
 ## Unsupported hosts
 
@@ -256,13 +262,15 @@ or administrator-managed connector.
 
 ## Functional verification
 
-When the host can use newly installed tools in the current session:
+To verify newly installed tools:
 
-1. Confirm that the server exposes exactly `search`, `read`, and
+1. Restart the host or open a new conversation when the current conversation does not reload newly connected tools.
+2. Explicitly ask the new conversation to use ByteRover. Do not accept an answer from model memory as verification.
+3. Confirm that the server exposes exactly `search`, `read`, and
    `write`.
-2. Call `search` once with query `ByteRover` and `effort` set to `low`. Do not pass a drive identifier; the
+4. Call `search` once with query `ByteRover` and `effort` set to `low`. Do not pass a drive identifier; the
    backend searches every drive allowed by current RBAC.
-3. Report only whether the call succeeded and how many results it returned. No results is a successful empty search.
+5. Report only whether the call succeeded and how many results it returned. No results is a successful empty search.
 
 If a restart is required, report installation and authentication separately from functional verification. Do not call
 the installation complete end to end until the search succeeds.
